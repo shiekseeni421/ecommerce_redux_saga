@@ -5,11 +5,14 @@
 }
 
 .nav_bar {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.31);
   padding: 10px 25px;
+  position: fixed;
+  z-index: 1;
 
   .Log_img {
     height: 45px;

@@ -5,6 +5,7 @@ import {
 } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
 import saga from "./rootSaga";
+import { useSelector } from "react-redux";
 
 const productSlice = createSlice({
   name: "products",
@@ -25,12 +26,19 @@ const productSlice = createSlice({
       return {
         products_array: state.products_array,
         add_count: state.add_count + 1,
-        cart_items: [...state.cart_items, action.payload],
+        cart_items: [...action.payload],
+      };
+    },
+    removeItems: (state, action) => {
+      return {
+        products_array: state.products_array,
+        add_count: state.add_count - 1,
+        cart_items: [...action.payload],
       };
     },
   },
 });
-export const { fetchData, addItems } = productSlice.actions;
+export const { fetchData, addItems, removeItems } = productSlice.actions;
 
 //Store elements
 let sagaMiddleware = createSagaMiddleware();

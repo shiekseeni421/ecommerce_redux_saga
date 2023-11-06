@@ -9,58 +9,35 @@ function AddCartPage() {
   const cart_items = useSelector((state) => state.products.cart_items);
   const [newItem, setNewItem] = useState([]);
 
-  let get_data = () => {
-    let data = [...new Set(cart_items)];
-    let new_array = [];
-    for (let i = 0; i < data.length; i++) {
-      let count = 0;
-      for (let j = 0; j < cart_items.length; j++) {
-        if (data[i]["id"] === cart_items[j]["id"]) {
-          count += 1;
-        }
-      }
-      new_array.push({
-        id: data[i]["id"],
-        count: count,
-        price: data[i]["price"],
-        preview: data[i]["preview"],
-        name: data[i]["name"],
-        Total_price: data[i]["total_price"] * count,
-      });
-    }
-    setNewItem(new_array);
-  };
-
-  useEffect(() => {
-    get_data();
-  }, [1]);
-
   return (
     <div>
       <div className="HomePage">
         <div className="card_container">
-          {newItem?.map((item) => (
+          {cart_items?.map((item) => (
             <div className="card_el">
               <img src={item.preview} alt="ecomerceLogo" />
-              <p className="Item_name">Name: {item.name}</p>
-              <p>Price: {item.price}</p>
-              <p>Item Total Count :{item.count}</p>
-              <p>Total Price: {item.price * item.count}</p>
+              <div className="cardItem">
+                <p className="Item_name">Name: {item.name}</p>
+                <p>Price: {item.price}</p>
+                <p>Item Total Count :{item.qty}</p>
+                <p>Total Price: {item.price * item.qty}</p>
+              </div>
             </div>
           ))}
           <p></p>
         </div>
       </div>
+      <p>
+        Total Item Score:
+        {cart_items.reduce((previousValue, currentValue) => {
+          return previousValue + currentValue.qty * currentValue.price;
+        }, 0)}
+      </p>
       <button
-        style={{
-          border: "none",
-          backgroundColor: "blue",
-          color: "white",
-          width: "100px",
-        }}
         onClick={() => {
           navigate("/");
         }}
+        className="Submit_Button"
       >
         Submit
       </button>

@@ -1,7 +1,14 @@
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.Submit_Button {
+  background-color: rgb(57, 57, 221);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
 }
 
 .HomePage {
@@ -14,38 +21,58 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin: 10px 10px;
-
+    margin: 80px 10px 10px 10px;
     .card_el {
-      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       display: flex;
       flex-direction: column;
-      height: 30%;
       width: 18%;
       margin: 10px 10px;
-      .addButton {
-        border: none;
-        background-color: rgb(39, 183, 191);
-        margin: 10px 10px 0px 10px;
-        border-radius: 10px;
-        text-transform: capitalize;
-        font-weight: 400;
-        color: #ffffff;
-        font-size: 12px;
-      }
-      .Item_name {
-        font-size: 12px;
-      }
+      height: 400px;
+      .cardItem {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        .Item_name {
+          font-size: 12px;
+        }
 
-      p {
-        margin: 0;
+        p {
+          margin: 0;
+        }
       }
 
       img {
-        height: 50%;
-        width: 100%;
         object-fit: cover;
+        height: 70%;
       }
+    }
+    .addButton {
+      border: none;
+      background-color: rgb(39, 183, 191);
+      border-radius: 10px;
+      text-transform: capitalize;
+      font-weight: 400;
+      color: #ffffff;
+      font-size: 12px;
+      margin: 0px 20px 25px 20px;
+    }
+
+    .btn {
+      border: none;
+      color: #ffffff;
+      padding: 5px 10px;
+    }
+
+    .count_value {
+      margin: 5px 10px;
+    }
+
+    .IncrementButton {
+      background-color: rgb(50, 50, 224);
+    }
+    .DecBtn {
+      background-color: red;
     }
   }
 }
